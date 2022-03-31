@@ -28,3 +28,11 @@ Copy this into the field
  Click on Run button.
 
 Execute your Jenkins build.
+
+______________________________________________________________________________________________________________
+
+To make it persistent, modify the file /etc/default/jenkins and after JAVA_ARGS line, add the following line:
+
+JAVA_ARGS="$JAVA_ARGS -Dhudson.model.DirectoryBrowserSupport.CSP=\"sandbox allow-scripts; default-src 'none'; img-src 'self' data: ; style-src 'self' 'unsafe-inline' data: ; script-src 'self' 'unsafe-inline' 'unsafe-eval' ;\""
+
+Change will apply and be persistent after reboot
